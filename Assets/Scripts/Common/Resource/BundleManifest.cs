@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace LinkGo.Common.AssetBundle
+namespace LinkGo.Common.Loader
 {
     public class BundleManifest
     {
