@@ -1,6 +1,6 @@
 //EventHandler
 
-namespace Quark.Common.Event
+namespace LinkGo.Common.Event
 {
     public delegate void EventHandler();
     public delegate void EventHandler<T1>(T1 arg1);

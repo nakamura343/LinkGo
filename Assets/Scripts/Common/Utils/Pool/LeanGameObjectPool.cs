@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace Quark.Common.Utils
+namespace LinkGo.Common.Utils
 {
 	/// <summary>This component allows you to pool GameObjects, giving you a very fast alternative to Instantiate and Destroy.
 	/// Pools also have settings to preload, recycle, and set the spawn capacity, giving you lots of control over your spawning.</summary>

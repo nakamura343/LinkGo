@@ -1,6 +1,6 @@
 using System;
 
-namespace Quark.Base.Utils
+namespace LinkGo.Base.Utils
 {
     public class Singleton<T> where T : new()
     {

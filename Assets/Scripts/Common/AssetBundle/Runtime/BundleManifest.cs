@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Quark.Common.AssetBundle
+namespace LinkGo.Common.AssetBundle
 {
     public class BundleManifest
     {

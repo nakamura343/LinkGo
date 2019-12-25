@@ -1,8 +1,8 @@
-﻿using Quark.Common.Utils;
+﻿using LinkGo.Common.Utils;
 using System;
 using System.Collections.Generic;
 
-namespace Quark.Common.Download
+namespace LinkGo.Common.Download
 {
     public class DownloadManager: MonoSingleton<DownloadManager>
     {

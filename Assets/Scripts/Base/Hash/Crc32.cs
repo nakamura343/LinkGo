@@ -1,6 +1,6 @@
 using System;
 
-namespace Quark.Base.Hash
+namespace LinkGo.Base.Hash
 {
     public sealed class Crc32
     {

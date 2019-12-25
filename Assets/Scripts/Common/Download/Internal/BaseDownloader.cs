@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine.Networking;
 
-namespace Quark.Common.Download
+namespace LinkGo.Common.Download
 {
     public abstract class BaseDownloader
     {

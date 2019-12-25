@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Quark.Common.Utils
+namespace LinkGo.Common.Utils
 {
     public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {

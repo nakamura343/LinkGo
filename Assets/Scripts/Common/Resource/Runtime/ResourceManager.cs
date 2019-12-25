@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Quark.Common.Utils;
-using Quark.Common.Loader;
+using LinkGo.Common.Utils;
+using LinkGo.Common.Loader;
 
-namespace Quark.Common.Resource
+namespace LinkGo.Common.Resource
 {
     public class ResourceManager : MonoSingleton<ResourceManager>
     {

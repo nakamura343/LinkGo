@@ -1,4 +1,4 @@
-﻿namespace Quark.Common.Download
+﻿namespace LinkGo.Common.Download
 {
     public enum DownloadState
     {

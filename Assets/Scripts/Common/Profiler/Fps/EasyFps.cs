@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Quark.Common.Profiler
+namespace LinkGo.Common.Profiler
 {
     public class EasyFps : MonoBehaviour
     {

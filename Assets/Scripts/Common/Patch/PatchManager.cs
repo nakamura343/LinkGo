@@ -1,4 +1,4 @@
-namespace Quark.Common.Patch
+namespace LinkGo.Common.Patch
 {
     public sealed class PatchManager
     {

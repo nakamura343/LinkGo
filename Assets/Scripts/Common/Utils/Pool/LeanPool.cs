@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace Quark.Common.Utils
+namespace LinkGo.Common.Utils
 {
 	/// <summary>This class handles the association between a spawned prefab, and the LeanGameObjectPool component that manages it.</summary>
 	public static class LeanPool

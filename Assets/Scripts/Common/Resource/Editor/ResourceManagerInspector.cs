@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using Quark.Common.Resource;
+using LinkGo.Common.Resource;
 
 [CustomEditor(typeof(ResourceManager))]
 public class ResourceManagerInspector : Editor

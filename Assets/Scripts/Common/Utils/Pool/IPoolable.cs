@@ -1,4 +1,4 @@
-﻿namespace Quark.Common.Utils
+﻿namespace LinkGo.Common.Utils
 {
 	/// <summary>If you implement this interface in a component on your pooled prefab, then the OnSpawn and OnDespawn methods will be automatically called when the associated LeanGameObjectPool.Notification = PoolableInterface.</summary>
 	public interface IPoolable

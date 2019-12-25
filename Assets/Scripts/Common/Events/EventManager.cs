@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Quark.Common.Event
+namespace LinkGo.Common.Event
 {
     /// <summary>
     /// 一个泛型实现的事件系统

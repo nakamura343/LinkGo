@@ -1,5 +1,5 @@
 
-namespace Quark.Common.Core
+namespace LinkGo.Common.Core
 {
     public interface ISubManager
     {

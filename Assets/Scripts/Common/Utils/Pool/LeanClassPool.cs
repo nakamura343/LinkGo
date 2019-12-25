@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Quark.Common.Utils
+namespace LinkGo.Common.Utils
 {
 	/// <summary>This class allows you to pool normal C# classes, for example:
 	/// var foo = Lean.Pool.LeanClassPool<Foo>.Spawn() ?? new Foo();

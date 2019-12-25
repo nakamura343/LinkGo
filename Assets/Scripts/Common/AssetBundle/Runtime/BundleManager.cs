@@ -1,6 +1,6 @@
-﻿using Quark.Common.Utils;
+﻿using LinkGo.Common.Utils;
 
-namespace Quark.Common.Loader
+namespace LinkGo.Common.Loader
 {
     public class LoaderManager : MonoSingleton<LoaderManager>
     {

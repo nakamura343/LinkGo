@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Quark.Base.Hash
+namespace LinkGo.Base.Hash
 {
     public sealed class Md5
     {

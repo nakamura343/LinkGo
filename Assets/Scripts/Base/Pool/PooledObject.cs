@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace Quark.Base.Pool
+namespace LinkGo.Base.Pool
 {
 	public abstract class PooledObject
 	{

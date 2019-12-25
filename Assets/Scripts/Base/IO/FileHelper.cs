@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Quark.Base.IO
+namespace LinkGo.Base.IO
 {
     public class FileHelper
     {

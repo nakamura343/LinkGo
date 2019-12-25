@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Quark.Common.Download
+namespace LinkGo.Common.Download
 {
     public class ChunkDownloadHandler : DownloadHandlerScript
     {

@@ -9,7 +9,7 @@ using System.IO;
 ///     3）多线程安全
 /// </summary>
 
-namespace Quark.Base.IO
+namespace LinkGo.Base.IO
 {
     public sealed class StreamBufferPool
     {

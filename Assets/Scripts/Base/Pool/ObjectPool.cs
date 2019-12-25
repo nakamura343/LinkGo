@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Quark.Base.Pool
+namespace LinkGo.Base.Pool
 {
     public class ObjectPool<T> where T : PooledObject, new()
     {
