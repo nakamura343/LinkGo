@@ -3,14 +3,14 @@ using UnityEngine.Events;
 using System;
 using System.Collections.Generic;
 
-namespace Timers
+namespace LinkGo.Common.Utils
 {
     // The TimerManager manages all scheduled timers. This includes both the regular execution of timers, as well as the cleanup of timers after garbage collection.
     [DisallowMultipleComponent]
-    public class TimersManager : MonoBehaviour
+    public class TimerManager : MonoBehaviour
     {
         // Ensure we only have a single instance of the TimersManager loaded (singleton pattern).
-        private static TimersManager m_instance = null;
+        private static TimerManager m_instance = null;
 
         // A map of weak references. When an object is garbage collected, all its timers are automatically removed.
         private static IDictionary<WeakReference, Timer> m_Timers = new Dictionary<WeakReference, Timer>();
