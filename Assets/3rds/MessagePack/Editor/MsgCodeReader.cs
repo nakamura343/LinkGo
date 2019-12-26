@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace MessagePack.Editor
+namespace MessagePack
 {
     #region base classes
     public abstract class TypeBase
