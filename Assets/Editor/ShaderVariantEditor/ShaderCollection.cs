@@ -26,6 +26,42 @@ namespace ShaderVariantEditor
             me.titleContent = new GUIContent("Shader管理");
         }
 
+        [MenuItem("Tools/ShaderReload", false, 300)]
+        static void ShaderReload()
+        {
+            bool done = false;
+            foreach (Assembly assembly in System.AppDomain.CurrentDomain.GetAssemblies())
+            {
+                if (assembly.FullName.StartsWith("UnityEditor,", System.StringComparison.Ordinal))
+                {
+                    foreach (System.Type t in assembly.GetTypes())
+                    {
+                        if (t.FullName.Equals("UnityEditor.ShaderUtil"))
+                        {
+                            MethodInfo mi = t.GetMethod("ReloadAllShaders", BindingFlags.NonPublic | BindingFlags.Static);
+                            if (mi != null)
+                            {
+
+                                string shaderCachePath = System.IO.Path.Combine(Application.dataPath, "../Library/ShaderCache");
+                                if (System.IO.Directory.Exists(shaderCachePath))
+                                {
+                                    System.IO.Directory.Delete(shaderCachePath, true);
+                                }
+
+                                mi.Invoke(null, null);
+                                done = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (done)
+                {
+                    break;
+                }
+            }
+        }
+
         Vector2 uv;
 
         private void OnGUI()
