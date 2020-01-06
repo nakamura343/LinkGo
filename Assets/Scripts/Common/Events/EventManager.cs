@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace LinkGo.Common.Event
 {
@@ -138,7 +139,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Remove Listener,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Remove Listener,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -157,7 +158,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Remove Listener,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Remove Listener,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -176,7 +177,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Remove Listener,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Remove Listener,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -195,7 +196,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Remove Listener,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Remove Listener,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -214,7 +215,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Remove Listener,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Remove Listener,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -233,7 +234,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Remove Listener,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Remove Listener,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -252,7 +253,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Remove Listener,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Remove Listener,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -271,7 +272,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Remove Listener,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Remove Listener,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -290,7 +291,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Remove Listener,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Remove Listener,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -309,7 +310,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Remove Listener,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Remove Listener,EventId:{0} don't exist!!!", eventId);
             }
         }
         #endregion
@@ -324,7 +325,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -337,7 +338,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -350,7 +351,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -363,7 +364,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -376,7 +377,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -389,7 +390,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -402,7 +403,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -415,7 +416,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -428,7 +429,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId);
             }
         }
 
@@ -441,7 +442,7 @@ namespace LinkGo.Common.Event
             }
             else
             {
-                throw new Exception(string.Format("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId));
+                Debug.LogErrorFormat("Don't Dispatcher Event,EventId:{0} don't exist!!!", eventId);
             }
         }
         #endregion
