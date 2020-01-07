@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.addressables": "1.1.10",
     "com.unity.burst": "1.1.2",
     "com.unity.cinemachine": "2.3.4",
     "com.unity.ide.vscode": "1.1.3",
