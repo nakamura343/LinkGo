@@ -15,7 +15,7 @@ namespace LinkGo.Common.Logger
 
         public override void OutputLog(LogType type, string log)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
     }
 }

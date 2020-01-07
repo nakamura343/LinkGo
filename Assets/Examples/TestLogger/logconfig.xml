@@ -1,0 +1,17 @@
+<LogConfig>
+    <loggers tag="Unity" type="127" showTime="true">
+        <targets type="ConsoleTarget"/>
+        <!--
+        <targets type="FileTarget" path="log.txt"/>
+        <targets type="RemoteTarget" url="127.0.0.1"/>
+        -->
+    </loggers>
+
+    <loggers tag="qww" type="4" showTime="true">
+        <targets type="FileTarget" path="log.txt"/>
+    </loggers>
+
+    <loggers tag="Report" type="4" showTime="true">
+        <targets type="RemoteTarget" url="127.0.0.1"/>
+    </loggers>
+</LogConfig>

@@ -1,8 +1,15 @@
-﻿using LinkGo.Common.Logger;
+﻿using LinkGo.Base.Utils;
+using LinkGo.Common.Logger;
 using UnityEngine;
 
 public class TestLogger : MonoBehaviour
 {
+    private void Awake()
+    {
+        LogConfig config = XmlSerializeUtil.DeserializeFromFile<LogConfig>(Application.dataPath + @"/Examples/TestLogger/logconfig.xml");
+        LogManager.Init(config);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
