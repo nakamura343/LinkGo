@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class FileTarget : MonoBehaviour
+namespace LinkGo.Common.Logger
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// 输出日志到文件
+    /// </summary>
+    public class FileTarget : BaseTarget
     {
-        
-    }
+        public string Path { get; private set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public FileTarget(string path)
+        {
+            Path = path;
+        }
+
+        public override void OutputLog(LogType type, string log)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
+
+

@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class BaseTarget : MonoBehaviour
+namespace LinkGo.Common.Logger
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// 日志输出目标基类
+    /// </summary>
+    public abstract class BaseTarget
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public abstract void OutputLog(LogType type, string message);
     }
 }
+
+

@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ConsoleTarget : MonoBehaviour
+//日志模块
+namespace LinkGo.Common.Logger
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// 输出日志到Unity控制台
+    /// </summary>
+    public class ConsoleTarget : BaseTarget
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void OutputLog(LogType type, string log)
+        {
+            string msg = ColorFormatter.LogFormat(type, log);
+            UnityEngine.Debug.Log(msg);
+        }
     }
 }
+
+
