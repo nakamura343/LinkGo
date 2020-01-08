@@ -1,0 +1,21 @@
+/*************************************************************************
+ *  #PROJECT# (C) #COMPANY#, All Rights Reserved
+ *------------------------------------------------------------------------
+ *  File         :  #SCRIPTNAME#
+ *  Author       :  #AUTHOR#
+ *  Date         :  #DATE#
+ *************************************************************************/
+using UnityEngine;
+
+public class #SCRIPTNAME# : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+}
