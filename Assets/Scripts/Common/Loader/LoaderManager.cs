@@ -2,16 +2,16 @@
 using System;
 using System.Collections.Generic;
 
-namespace LinkGo.Common.Resource
+namespace LinkGo.Common.Loader
 {
-    public delegate void OnLoadAssetComplete(BaseAsset asset);
+    
 
     public class LoaderManager : MonoSingleton<LoaderManager>
     {
         private List<string> m_WaitingLoadAssetList = new List<string>();
         private Dictionary<string, BaseLoader> m_LoadingAssetMap = new Dictionary<string, BaseLoader>();
 
-        public void LoadAsset(string path, OnLoadAssetComplete onLoadAsset)
+        public BaseLoader LoadAsset(string path)
         {
             if(string.IsNullOrEmpty(path))
             {
@@ -20,12 +20,9 @@ namespace LinkGo.Common.Resource
 
             if(m_WaitingLoadAssetList.Contains(path))
             {
-                return;
+                return null;
             }
-
-
-
-
+            return null;
         }
 
         private void Update()

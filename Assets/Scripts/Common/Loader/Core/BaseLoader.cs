@@ -1,28 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 
-namespace LinkGo.Common.Resource
+namespace LinkGo.Common.Loader
 {
-    public enum ELoadState
-    {
-        Unknown = 0,
-        NotLoaded = 1,
-        Loading = 2,
-        Loaded = 3,
-    }
+    public delegate void LoadAssetCompleted(BaseObject obj);
 
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class BaseLoader
     {
         public string Path { get; protected set; }
 
-        public BaseAsset baseAsset { get; protected set; }
-
-        public ELoadState State { get; protected set; }
+        public BaseObject baseObject { get; protected set; }
 
         public float Progress { get; protected set; }
 
         public bool IsDone { get; protected set; }
+
+        public LoadAssetCompleted onCompleted;
 
         public BaseLoader(string path)
         {
