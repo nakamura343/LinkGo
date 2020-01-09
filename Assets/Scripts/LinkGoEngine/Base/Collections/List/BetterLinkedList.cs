@@ -4,7 +4,6 @@ using System.Collections.Generic;
 /// <summary>
 /// 说明：无GC版链表：对LinkedList地再次封装，托管所有LinkedListNode，用缓存来避免GC
 /// </summary>
-
 namespace LinkGo.Base.Collections
 {
     public sealed class BetterLinkedList<T> : IEnumerable

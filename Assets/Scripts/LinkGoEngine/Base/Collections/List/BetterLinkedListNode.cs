@@ -1,3 +1,4 @@
+using LinkGo.Base.Pool;
 using System.Collections.Generic;
 
 /// <summary>
@@ -18,8 +19,10 @@ namespace LinkGo.Base.Collections
         public BetterLinkedListNode<T> Holder { get; set; }
     }
 
-    public sealed class BetterLinkedListNode<T> : CustomDataStruct.IRelease
+    public sealed class BetterLinkedListNode<T>
     {
+        static ObjectPool<BetterLinkedListNode<T>> s_cachePool = new ObjectPool<BetterLinkedListNode<T>>(8);
+
         LinkedListNode<BetterLinkedListNodeData<T>> mNode;
 
         public BetterLinkedListNode()
@@ -28,7 +31,7 @@ namespace LinkGo.Base.Collections
 
         static public BetterLinkedListNode<T> Get()
         {
-            BetterLinkedListNode<T> node = CustomDataStruct.ObjPool<BetterLinkedListNode<T>>.Get();
+            BetterLinkedListNode<T> node = s_cachePool.Get();
             if (node != null)
             {
                 node.List = default(BetterLinkedList<T>);
@@ -39,7 +42,7 @@ namespace LinkGo.Base.Collections
 
         public void Release()
         {
-            CustomDataStruct.ObjPool<BetterLinkedListNode<T>>.instance.Release(this);
+            s_cachePool.Release(this);
         }
         
         public void InitInfo(BetterLinkedList<T> list, T value)

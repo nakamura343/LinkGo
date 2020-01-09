@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 
 namespace LinkGo.Base.Pool
 {
-    public class ObjectPool<T> where T : PooledObject, new()
+    public class ObjectPool<T> where T : new()
     {
         private Stack<T> m_objectStack;
 
@@ -12,22 +11,20 @@ namespace LinkGo.Base.Pool
             m_objectStack = new Stack<T>(capacity);
         }
 
-        public T New()
+        public T Get()
         {
             if (m_objectStack.Count > 0)
             {
                 T t = m_objectStack.Pop();
-                t.Reset();
                 return t;
             }
             else
             {
-                T t = new T();
-                return t;
+                return System.Activator.CreateInstance<T>();
             }
         }
 
-        public void Store(T obj)
+        public void Release(T obj)
         {
             m_objectStack.Push(obj);
         }
