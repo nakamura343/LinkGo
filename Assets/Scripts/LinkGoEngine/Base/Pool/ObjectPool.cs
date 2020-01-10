@@ -11,19 +11,19 @@ namespace LinkGo.Base.Pool
 	/// </summary>
 	public sealed class ObjectPool<T> where T : class
 	{
-		private Stack<T> m_cachePool = new Stack<T>();
+		private Stack<T> m_objectStack;
 
 		public ObjectPool(int capacity)
 		{
-			m_cachePool = new Stack<T>(capacity);
+			m_objectStack = new Stack<T>(capacity);
 		}
 
 		// This will either return a pooled class instance.
-		public T Spawn()
+		public T New()
 		{
-			if (m_cachePool.Count > 0)
+			if (m_objectStack.Count > 0)
 			{
-				T t = m_cachePool.Pop();
+				T t = m_objectStack.Pop();
 				return t;
 			}
 			else
@@ -35,9 +35,9 @@ namespace LinkGo.Base.Pool
 		/// <summary>
 		/// This will either return a pooled class instance. If an instance it found, onSpawn will be called with it.
 		/// </summary>
-		public T Spawn(System.Action<T> onSpawn)
+		public T New(System.Action<T> onSpawn)
 		{
-			var instance = Spawn();
+			var instance = New();
 
 			onSpawn?.Invoke(instance);
 
@@ -47,23 +47,23 @@ namespace LinkGo.Base.Pool
 		/// <summary>
 		/// This will pool the passed class instance.
 		/// </summary>
-		public void Despawn(T instance)
+		public void Store(T instance)
 		{
 			if (instance != null)
 			{
-				m_cachePool.Push(instance);
+				m_objectStack.Push(instance);
 			}
 		}
 
 		/// <summary>This will pool the passed class instance.
 		/// If you need to perform despawning code then you can do that via onDespawn.</summary>
-		public void Despawn(T instance, System.Action<T> onDespawn)
+		public void Store(T instance, System.Action<T> onDespawn)
 		{
 			if (instance != null)
 			{
 				onDespawn(instance);
 
-				Despawn(instance);
+				Store(instance);
 			}
 		}
 	}
