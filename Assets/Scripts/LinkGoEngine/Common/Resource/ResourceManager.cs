@@ -20,6 +20,8 @@ namespace LinkGo.Common.Resource
 
     public class ResourceManager : MonoSingleton<ResourceManager>
     {
+        public static bool SimulateAssetBundleInEditor = true;
+
         #region Interface
         /// <summary>
         /// 初始化资源加加载器
