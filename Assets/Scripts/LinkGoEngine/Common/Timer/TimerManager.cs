@@ -2,36 +2,19 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 using System.Collections.Generic;
+using LinkGo.Common.Utils;
 
-namespace LinkGo.Common.Utils
+namespace LinkGo.Common.Timer
 {
     // The TimerManager manages all scheduled timers. This includes both the regular execution of timers, as well as the cleanup of timers after garbage collection.
     [DisallowMultipleComponent]
-    public class TimerManager : MonoBehaviour
+    public class TimerManager : MonoSingleton<TimerManager>
     {
-        // Ensure we only have a single instance of the TimersManager loaded (singleton pattern).
-        private static TimerManager m_instance = null;
-
         // A map of weak references. When an object is garbage collected, all its timers are automatically removed.
         private static IDictionary<WeakReference, Timer> m_Timers = new Dictionary<WeakReference, Timer>();
 
         // Whether the game is paused
         private static bool m_bPaused = false;
-
-        void Awake()
-        {
-            if (m_instance != null)
-            {
-#if UNITY_EDITOR
-                Debug.LogWarning("An instance of Timer has already been loaded. Multiple instances are not necessary and will be destroyed.");
-#endif
-                Destroy(this);
-            }
-
-            DontDestroyOnLoad(this);
-            DontDestroyOnLoad(gameObject);
-            m_instance = this;
-        }
 
         private static void FindAndRemove(UnityAction UnityAction)
         {

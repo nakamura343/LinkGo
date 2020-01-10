@@ -31,7 +31,7 @@ namespace LinkGo.Base.Collections
 
         static public BetterLinkedListNode<T> Get()
         {
-            BetterLinkedListNode<T> node = s_cachePool.Get();
+            BetterLinkedListNode<T> node = s_cachePool.Spawn();
             if (node != null)
             {
                 node.List = default(BetterLinkedList<T>);
@@ -42,7 +42,7 @@ namespace LinkGo.Base.Collections
 
         public void Release()
         {
-            s_cachePool.Release(this);
+            s_cachePool.Despawn(this);
         }
         
         public void InitInfo(BetterLinkedList<T> list, T value)

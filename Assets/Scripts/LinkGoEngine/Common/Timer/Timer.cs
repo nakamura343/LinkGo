@@ -1,4 +1,4 @@
-﻿using UnityEngine;using UnityEngine.Events;namespace LinkGo.Common.Utils {    [System.Serializable]    public class Timer    {        public const uint INFINITE = uint.MaxValue;
+﻿using UnityEngine;using UnityEngine.Events;namespace LinkGo.Common.Timer {    [System.Serializable]    public class Timer    {        public const uint INFINITE = uint.MaxValue;
 
         [SerializeField]
         private float m_Interval = 0;        [SerializeField]
