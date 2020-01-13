@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LinkGo.Common.Utils;
+using System;
+using System.Collections;
 
 namespace LinkGo.Common.Resource
 {
@@ -11,8 +13,10 @@ namespace LinkGo.Common.Resource
         Unload  = 4, //已卸载
     }
 
-    public abstract class BaseAsset
+    public abstract class BaseAsset : SimpleRefCounter, IEnumerator
     {
+        public string Path { protected set; get; }
+
         public int RefCount { protected set; get; }
 
         public ELoadState State { protected set; get; }
@@ -21,11 +25,34 @@ namespace LinkGo.Common.Resource
 
         public float Progress { protected set; get; }
 
-        public event Action<BaseAsset> completed;
+        public Action<BaseAsset> completed;
 
-        public abstract void Load();
+        public BaseAsset(string path)
+        {
+            Path = path;
+            State = ELoadState.Init;
+        }
 
-        public abstract void Unload();
+        #region IEnumerator
+        public object Current
+        {
+            get { return null; }
+        }
+
+        public bool MoveNext()
+        {
+            return !IsDone;
+        }
+
+        public void Reset()
+        {
+            
+        }
+        #endregion
+
+        public abstract bool Update();
+
+        public abstract T GetAsset<T>() where T : UnityEngine.Object;
     }
 }
 
