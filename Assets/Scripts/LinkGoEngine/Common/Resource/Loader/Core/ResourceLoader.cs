@@ -2,22 +2,23 @@
 
 namespace LinkGo.Common.Loader
 {
-    public class BundleLoader : BaseLoader
+    public class ResourceLoader : BaseLoader
     {
-        private AssetBundleCreateRequest m_AsyncOperation;
+        ResourceRequest m_AsyncOperation;
 
-        public BundleLoader(string path) : base(path)
+        public ResourceLoader(string path, int priority) : base(path, priority)
         {
+
         }
 
         public override void Start()
         {
-            m_AsyncOperation = AssetBundle.LoadFromFileAsync(Path);
+            m_AsyncOperation = Resources.LoadAsync(Path);
         }
 
         public override bool Update()
         {
-            if(m_AsyncOperation.isDone)
+            if (m_AsyncOperation.isDone)
             {
                 Progress = 1f;
                 IsDone = true;
@@ -31,9 +32,9 @@ namespace LinkGo.Common.Loader
 
         public override void End()
         {
-            //baseAsset = new BundleAsset(m_AsyncOperation.assetBundle);
+            AssetObj = m_AsyncOperation.asset;
+            onCompleted?.Invoke(ELoaderType.ResourceLoader, AssetObj);
         }
     }
 }
-
 

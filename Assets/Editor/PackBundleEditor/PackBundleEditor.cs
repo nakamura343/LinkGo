@@ -3,7 +3,7 @@ using UnityEditor;
 
 public static class PackBundle
 {
-    const string kSimulationMode = "AssetBundles/Simulation Mode";
+    const string kSimulationMode = "AssetBundle/Simulation Mode";
 
     [MenuItem(kSimulationMode)]
     public static void ToggleSimulationMode()

@@ -18,7 +18,6 @@ namespace LinkGo.Common.Download
         {
             //断点续传设置读取文件数据流开始索引，成功会返回206
             m_webRequest = UnityWebRequest.Get(Url);
-            m_webRequest.chunkedTransfer = true;
             m_webRequest.disposeDownloadHandlerOnDispose = true;
             m_webRequest.useHttpContinue = true; //默认就是true
 

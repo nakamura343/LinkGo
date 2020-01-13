@@ -1,26 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LinkGo.Common.Loader
 {
-    public class ResourceLoader : BaseLoader
+    public class BundleLoader : BaseLoader
     {
-        ResourceRequest m_AsyncOperation;
+        private AssetBundleCreateRequest m_AsyncOperation;
 
-        public ResourceLoader(string path) : base(path)
+        public BundleLoader(string path, int priority) : base(path, priority)
         {
-
         }
 
         public override void Start()
         {
-            m_AsyncOperation = Resources.LoadAsync(Path);
+            m_AsyncOperation = AssetBundle.LoadFromFileAsync(Path);
         }
 
         public override bool Update()
         {
-            if (m_AsyncOperation.isDone)
+            if(m_AsyncOperation.isDone)
             {
                 Progress = 1f;
                 IsDone = true;
@@ -34,8 +31,10 @@ namespace LinkGo.Common.Loader
 
         public override void End()
         {
-            throw new System.NotImplementedException();
+            AssetObj = m_AsyncOperation.assetBundle;
+            onCompleted?.Invoke(ELoaderType.BundleLoader, AssetObj);
         }
     }
 }
+
 
