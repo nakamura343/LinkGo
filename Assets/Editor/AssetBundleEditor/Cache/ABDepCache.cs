@@ -16,7 +16,7 @@ namespace ABBuildEditor
         public string[] depsPath;           
     }
 
-    public static class CacheManager
+    public static class ABDepCache
     {
         private static bool s_Inited = false;
 

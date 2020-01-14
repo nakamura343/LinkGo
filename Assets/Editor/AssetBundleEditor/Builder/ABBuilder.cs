@@ -2,7 +2,7 @@ using UnityEditor;
 
 namespace ABBuildEditor
 {
-    public class AssetBundleEditor
+    public static class ABBuilder
     {
         #region Const
         public const string BUNDLE_ANDROID_DIR = "DataAndroid";

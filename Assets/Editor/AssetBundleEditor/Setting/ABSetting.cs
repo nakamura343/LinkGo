@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ABBuildEditor
 {
-    public class AssetBundleSetting : ScriptableObject
+    public class ABSetting : ScriptableObject
     {
         [SerializeField]
         public string BundleOutputPath; //Bundle输出目录
@@ -12,7 +12,7 @@ namespace ABBuildEditor
 
     }
 
-    public class PackBundleRule
+    public class PackABRule
     {
 
     }
