@@ -14,12 +14,22 @@ namespace LinkGo.Common.Resource
 
         public override T GetAsset<T>()
         {
-            throw new NotImplementedException();
+            return default(T);
+        }
+
+        public override void Load(ELoaderType type)
+        {
+            
+        }
+
+        public override void Unload()
+        {
+            
         }
 
         public override bool Update()
         {
-            throw new NotImplementedException();
+            return false;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using LinkGo.Common.Utils;
+﻿using LinkGo.Common.Loader;
+using LinkGo.Common.Utils;
 using System;
 using System.Collections;
 
@@ -16,8 +17,6 @@ namespace LinkGo.Common.Resource
     public abstract class BaseAsset : SimpleRefCounter, IEnumerator
     {
         public string Path { protected set; get; }
-
-        public int RefCount { protected set; get; }
 
         public ELoadState State { protected set; get; }
 
@@ -50,7 +49,11 @@ namespace LinkGo.Common.Resource
         }
         #endregion
 
+        public abstract void Load(ELoaderType type);
+
         public abstract bool Update();
+
+        public abstract void Unload();
 
         public abstract T GetAsset<T>() where T : UnityEngine.Object;
     }
