@@ -10,6 +10,7 @@ namespace LuaInterface
     {
         protected IntPtr L;
 
+        #if UNITY_ANDROID
         string jit = @"            
         function Euler(x, y, z)
             x = x * 0.0087266462599716
@@ -67,6 +68,7 @@ namespace LuaInterface
                 end                
             end	                   
         end";
+#endif
 
         public int LuaUpValueIndex(int i)
         {

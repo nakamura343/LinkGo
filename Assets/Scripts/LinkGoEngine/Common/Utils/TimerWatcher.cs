@@ -13,6 +13,7 @@ namespace LinkGo.Common.Utils
 
         public TimerWatcher(string tag)
         {
+            m_Tag = tag;
             m_watcher = s_watcherPool.New();
             m_watcher.Start();
         }

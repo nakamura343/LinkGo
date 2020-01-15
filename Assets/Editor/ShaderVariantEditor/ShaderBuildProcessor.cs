@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Rendering;
 using ShaderVariant = UnityEngine.ShaderVariantCollection.ShaderVariant;
 
 namespace ShaderVariantEditor
@@ -46,7 +47,7 @@ namespace ShaderVariantEditor
             var shaderKeywords = variants.shaderKeywordSet.GetShaderKeywords();
             foreach (var shaderkeyword in shaderKeywords)
             {
-                keywords.Add(shaderkeyword.GetKeywordName());
+                keywords.Add(ShaderKeyword.GetGlobalKeywordName(shaderkeyword));
             }
             bool hasKeywords = keywords.Count > 0;
             Debug.Log(shader.name + "\tVariants:" + (hasKeywords ? string.Join("\t", keywords.ToArray()) : "<no keywords>"));

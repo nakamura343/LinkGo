@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using LuaInterface;
 using System;
+using UnityEngine.Networking;
 
 //click Lua/Build lua bundle
 public class TestABLoader : MonoBehaviour 
@@ -13,7 +14,7 @@ public class TestABLoader : MonoBehaviour
 
     IEnumerator CoLoadBundle(string name, string path)
     {
-        using (WWW www = new WWW(path))
+        using (UnityWebRequest www = UnityWebRequest.Get(path))
         {
             if (www == null)
             {
@@ -21,7 +22,7 @@ public class TestABLoader : MonoBehaviour
                 yield break;
             }
 
-            yield return www;
+            yield return www.SendWebRequest();
 
             if (www.error != null)
             {
@@ -30,7 +31,8 @@ public class TestABLoader : MonoBehaviour
             }
 
             --bundleCount;
-            LuaFileUtils.Instance.AddSearchBundle(name, www.assetBundle);
+            AssetBundle ab = (www.downloadHandler as DownloadHandlerAssetBundle).assetBundle;
+            LuaFileUtils.Instance.AddSearchBundle(name, ab);
             www.Dispose();
         }                     
     }
@@ -49,16 +51,17 @@ public class TestABLoader : MonoBehaviour
     {
         string streamingPath = Application.streamingAssetsPath.Replace('\\', '/');
 
-#if UNITY_5 || UNITY_2017 || UNITY_2018
+#if UNITY_5 || UNITY_2017 || UNITY_2018 || UNITY_2019
 #if UNITY_ANDROID && !UNITY_EDITOR
         string main = streamingPath + "/" + LuaConst.osDir + "/" + LuaConst.osDir;
 #else
         string main = "file:///" + streamingPath + "/" + LuaConst.osDir + "/" + LuaConst.osDir;
 #endif
-        WWW www = new WWW(main);
-        yield return www;
+        UnityWebRequest www = new UnityWebRequest(main);
+        yield return www.SendWebRequest();
 
-        AssetBundleManifest manifest = (AssetBundleManifest)www.assetBundle.LoadAsset("AssetBundleManifest");
+        AssetBundle ab = (www.downloadHandler as DownloadHandlerAssetBundle).assetBundle;
+        AssetBundleManifest manifest = (AssetBundleManifest)ab.LoadAsset("AssetBundleManifest");
         List<string> list = new List<string>(manifest.GetAllAssetBundles());        
 #else
         //此处应该配表获取
@@ -84,11 +87,7 @@ public class TestABLoader : MonoBehaviour
 
     void Awake()
     {
-#if UNITY_5 || UNITY_2017 || UNITY_2018
         Application.logMessageReceived += ShowTips;
-#else
-        Application.RegisterLogCallback(ShowTips);
-#endif
         LuaFileUtils file = new LuaFileUtils();
         file.beZip = true;
 #if UNITY_ANDROID && UNITY_EDITOR
@@ -113,11 +112,7 @@ public class TestABLoader : MonoBehaviour
 
     void OnApplicationQuit()
     {
-#if UNITY_5 || UNITY_2017 || UNITY_2018
         Application.logMessageReceived -= ShowTips;
-#else
-        Application.RegisterLogCallback(null);
-#endif
     }
 
     void OnBundleLoad()

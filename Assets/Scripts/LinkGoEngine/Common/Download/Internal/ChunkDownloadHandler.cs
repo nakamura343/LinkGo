@@ -27,15 +27,15 @@ namespace LinkGo.Common.Download
         }
 
         //要下载的文件总长度
-        private int m_ContentLength = 0;
-        private int ContentLength
+        private ulong m_ContentLength = 0;
+        private ulong ContentLength
         {
             get { return m_ContentLength; }
         }
 
         //已经下载的数据长度
-        private int m_DownedLength = 0;
-        public int DownedLength
+        private ulong m_DownedLength = 0;
+        public ulong DownedLength
         {
             get { return m_DownedLength; }
         }
@@ -64,14 +64,14 @@ namespace LinkGo.Common.Download
         {
             m_SavePath = filePath;
             this.m_fStream = new FileStream(filePath + ".temp", FileMode.Append, FileAccess.Write);    //文件流操作的是临时文件，结尾添加.temp扩展名
-            m_DownedLength = (int)m_fStream.Length;  //设置已经下载的数据长度
+            m_DownedLength = (ulong)m_fStream.Length;  //设置已经下载的数据长度
         }
 
         /// <summary>
         /// 请求下载时，会先接收到文件的数据总量
         /// </summary>
         /// <param name="contentLength">如果是从网络上下载资源，则表示文件剩余下载的大小；如果是本地拷贝资源，则表示文件总长度</param>
-        protected override void ReceiveContentLength(int contentLength)
+        protected override void ReceiveContentLengthHeader(ulong contentLength)
         {
             m_ContentLength = contentLength + m_DownedLength;
             m_LastTime = Time.time;
@@ -91,7 +91,7 @@ namespace LinkGo.Common.Download
                 return false;
             }
             m_fStream.Write(data, 0, dataLength);
-            m_DownedLength += dataLength;
+            m_DownedLength += (ulong)dataLength;
 
             //统计下载速度
             if (Time.time - m_LastTime >= 1.0f)

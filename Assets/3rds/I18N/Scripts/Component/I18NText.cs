@@ -7,16 +7,20 @@ namespace Mongo.Common.I18N
     [DisallowMultipleComponent]
     public class I18NText : I18NBehaviour
     {
-        private Text _text;
+        private Text m_textInst;
+
+        private void Awake()
+        {
+            m_textInst = GetComponent<Text>();
+        }
 
         /// <summary>
         /// Awake is called when the script instance is being loaded.
         /// </summary>
-        void Awake()
+        void OnEnable()
         {
             string text = I18N.instance.GetText("dkek");
-            _text.text = text;
+            m_textInst.text = text;
         }
-
     }
 }

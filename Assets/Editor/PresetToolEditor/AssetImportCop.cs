@@ -18,21 +18,18 @@ namespace PresetToolEditor
                 var p = Path.GetDirectoryName(AssetDatabase.GUIDToAssetPath(findAsset));
                 if (p == Path.GetDirectoryName(path))
                 {
-                    Debug.Log("Found AssetRule for Asset Rule" + AssetDatabase.GUIDToAssetPath(findAsset));
-                    {
-                        return AssetDatabase.LoadAssetAtPath<PresetRule>(AssetDatabase.GUIDToAssetPath(findAsset));
-                    }
+                    return AssetDatabase.LoadAssetAtPath<PresetRule>(AssetDatabase.GUIDToAssetPath(findAsset));
                 }
             }
 
-            //no match so go up a level
-            path = Directory.GetParent(path).FullName;
-            path = path.Replace('\\', '/');
-            path = path.Remove(0, Application.dataPath.Length);
-            path = path.Insert(0, "Assets");
-            Debug.Log("Searching: " + path);
-            if (path != "Assets")
-                return SearchRecursive(path);
+            ////no match so go up a level
+            //path = Directory.GetParent(path).FullName;
+            //path = path.Replace('\\', '/');
+            //path = path.Remove(0, Application.dataPath.Length);
+            //path = path.Insert(0, "Assets");
+            //Debug.Log("Searching: " + path);
+            //if (path != "Assets")
+            //    return SearchRecursive(path);
 
             //no matches
             return null;
@@ -62,15 +59,15 @@ namespace PresetToolEditor
 
         public static void OnPostprocessAllAssets(string[] importedAsset, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
-            //foreach (string str in importedAsset)
-            //{
-            //    Debug.Log("importedAsset = " + str);
-            //}
+            foreach (string str in importedAsset)
+            {
+                Debug.Log("importedAsset = " + str);
+            }
 
-            //foreach (string str in deletedAssets)
-            //{
-            //    Debug.Log("deletedAssets = " + str);
-            //}
+            foreach (string str in deletedAssets)
+            {
+                Debug.Log("deletedAssets = " + str);
+            }
 
             foreach (string str in movedAssets)
             {
@@ -84,10 +81,10 @@ namespace PresetToolEditor
                 rule.Apply(assetImporter);
             }
 
-            //foreach (string str in movedFromAssetPaths)
-            //{
-            //    Debug.Log("movedFromAssetPaths = " + str);
-            //}
+            foreach (string str in movedFromAssetPaths)
+            {
+                Debug.Log("movedFromAssetPaths = " + str);
+            }
         }
     }
 }
