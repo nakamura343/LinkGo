@@ -3,7 +3,7 @@
  */
 using UnityEngine.UI;
 
-namespace LinkGo.Common.UI
+namespace UGUIEx
 {
     public class Empty4Raycast : MaskableGraphic
     {
