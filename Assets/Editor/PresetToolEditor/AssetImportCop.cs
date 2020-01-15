@@ -61,12 +61,12 @@ namespace PresetToolEditor
         {
             foreach (string str in importedAsset)
             {
-                Debug.Log("importedAsset = " + str);
+                //Debug.Log("importedAsset = " + str);
             }
 
             foreach (string str in deletedAssets)
             {
-                Debug.Log("deletedAssets = " + str);
+                //Debug.Log("deletedAssets = " + str);
             }
 
             foreach (string str in movedAssets)
@@ -83,7 +83,7 @@ namespace PresetToolEditor
 
             foreach (string str in movedFromAssetPaths)
             {
-                Debug.Log("movedFromAssetPaths = " + str);
+                //Debug.Log("movedFromAssetPaths = " + str);
             }
         }
     }

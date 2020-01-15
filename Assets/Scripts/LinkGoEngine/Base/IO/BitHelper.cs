@@ -1,7 +1,4 @@
-﻿
-
-using System;
-using System.Diagnostics.Contracts;
+﻿using System;
 using System.Text;
 
 namespace LinkGo.Base
@@ -254,7 +251,6 @@ namespace LinkGo.Base
             return cc * (-1);
         }
 
-
         /// <summary>
         /// 根据补码，计算原码
         /// </summary>
@@ -265,11 +261,8 @@ namespace LinkGo.Base
             byte s = sizeof(byte) * 8 - 1;
             if ((v & (1 << s)) == 0) return v; //正数补码相同
 
-
             byte b = (byte)(v - (byte)1); //逆操作，先减1
             byte c = RadixMinusOneComplement(b); //再取反
-
-
             return c;
         }
         public static UInt16 ComplementToTrueForm(UInt16 v)
@@ -277,11 +270,8 @@ namespace LinkGo.Base
             byte s = sizeof(UInt16) * 8 - 1;
             if ((v & (1 << s)) == 0) return v; //正数补码相同
 
-
             UInt16 b = (UInt16)(v - (UInt16)1); //逆操作，先减1
             UInt16 c = RadixMinusOneComplement(b); //再取反
-
-
             return c;
         }
         public static UInt32 ComplementToTrueForm(UInt32 v)
@@ -289,10 +279,8 @@ namespace LinkGo.Base
             byte s = sizeof(UInt32) * 8 - 1;
             if ((v & (1 << s)) == 0) return v; //正数补码相同
 
-
             UInt32 b = (UInt32)(v - (UInt32)1); //逆操作，先减1
             UInt32 c = RadixMinusOneComplement(b); //再取反
-
 
             return c;
         }
@@ -301,14 +289,10 @@ namespace LinkGo.Base
             byte s = sizeof(UInt64) * 8 - 1;
             if ((v & (ulong)(1 << s)) == 0) return v; //正数补码相同
 
-
             UInt64 b = (UInt64)(v - (UInt64)1); //逆操作，先减1
             UInt64 c = RadixMinusOneComplement(b); //再取反
-
-
             return c;
         }
-
 
         /// <summary>
         /// 保留某些位，其余位设置为0
@@ -321,10 +305,7 @@ namespace LinkGo.Base
         public static byte Reserve(byte b, int startBit, int endBit)
         {
             byte s = sizeof(byte) * 8 - 1;
-
-
             if (endBit > s) return b;
-
 
             byte c = b;
             if (startBit > 0)
@@ -335,22 +316,17 @@ namespace LinkGo.Base
                 }
             }
 
-
             for (int i = endBit + 1; i < s + 1; i++)
             {
                 c = (byte)(c & (byte)(byte.MaxValue - (1 << i)));
             }
-
-
             return c;
         }
         public static UInt16 Reserve(UInt16 b, int startBit, int endBit)
         {
             byte s = sizeof(UInt16) * 8 - 1;
 
-
             if (endBit > s) return b;
-
 
             UInt16 c = b;
             if (startBit > 0)
@@ -361,23 +337,16 @@ namespace LinkGo.Base
                 }
             }
 
-
             for (int i = endBit + 1; i < s + 1; i++)
             {
                 c = (UInt16)(c & (UInt16)(UInt16.MaxValue - (1 << i)));
             }
-
-
             return c;
         }
         public static UInt32 Reserve(UInt32 b, int startBit, int endBit)
         {
             byte s = sizeof(UInt32) * 8 - 1;
-
-
             if (endBit > s) return b;
-
-
             UInt32 c = b;
             if (startBit > 0)
             {
@@ -386,7 +355,6 @@ namespace LinkGo.Base
                     c = (UInt32)(c & (UInt32)(UInt32.MaxValue - (1 << i)));
                 }
             }
-
 
             for (int i = endBit + 1; i < s + 1; i++)
             {
@@ -398,10 +366,7 @@ namespace LinkGo.Base
         public static UInt64 Reserve(UInt64 b, int startBit, int endBit)
         {
             byte s = sizeof(UInt64) * 8 - 1;
-
-
             if (endBit > s) return b;
-
 
             UInt64 c = b;
             if (startBit > 0)
@@ -412,7 +377,6 @@ namespace LinkGo.Base
                 }
             }
 
-
             for (int i = endBit + 1; i < s + 1; i++)
             {
                 c = (UInt64)(c & (UInt64)(UInt64.MaxValue - (ulong)(1 << i)));
@@ -420,7 +384,6 @@ namespace LinkGo.Base
 
             return c;
         }
-
 
         /// <summary>
         /// 合并多个字节，第一个参数是最高字节，其余类推
@@ -450,7 +413,6 @@ namespace LinkGo.Base
             return b;
         }
 
-
         /// <summary>
         /// 获取某位的值，1=true；0=false；
         /// </summary>
@@ -459,42 +421,29 @@ namespace LinkGo.Base
         /// <returns></returns>
         public static bool GetBit(byte v, byte index)
         {
-            Contract.Requires(index + 1 <= 8);
             byte c = Convert.ToByte(((v & (1 << index)) > 0) ? 1 : 0);
             bool b = c == 0x01 ? true : false;
-
-
             return b;
         }
         public static bool GetBit(UInt16 v, byte index)
         {
-            Contract.Requires(index + 1 <= 16);
             byte c = Convert.ToByte(((v & (1 << index)) > 0) ? 1 : 0);
             bool b = c == 0x01 ? true : false;
-
-
             return b;
         }
         public static bool GetBit(UInt32 v, byte index)
         {
-            Contract.Requires(index + 1 <= 32);
             byte c = Convert.ToByte(((v & (1 << index)) > 0) ? 1 : 0);
             bool b = c == 0x01 ? true : false;
-
-
             return b;
         }
 
         public static bool GetBit(UInt64 v, byte index)
         {
-            Contract.Requires(index + 1 <= 64);
             byte c = Convert.ToByte(((v & (ulong)(1 << index)) > 0) ? 1 : 0);
             bool b = c == 0x01 ? true : false;
-
-
             return b;
         }
-
 
         /// <summary>
         /// 设置某一位的值
@@ -505,58 +454,24 @@ namespace LinkGo.Base
         /// <returns></returns>
         public static byte SetBit(byte data, bool v, byte index)
         {
-            byte a = v == true ? (byte)1 : (byte)0;
-
-
-            Contract.Requires(index + 1 <= 8);
-            Contract.Requires(a < (1 << (byte)1));
-
-
             if (v) return (byte)(data | (1 << index));
-
 
             return (byte)(data & (byte.MaxValue - (1 << index)));
         }
 
         public static UInt16 SetBit(UInt16 data, bool v, byte index)
         {
-            byte a = v == true ? (byte)1 : (byte)0;
-            Contract.Requires(index + 1 <= 16);
-            Contract.Requires(a < (1 << (byte)1));
-
-
             if (v) return (UInt16)(data | (1 << index));
-
 
             return (UInt16)(data & (UInt16.MaxValue - (1 << index)));
         }
 
         public static UInt32 SetBit(UInt32 data, bool v, byte index)
         {
-            byte a = v == true ? (byte)1 : (byte)0;
-            Contract.Requires(index + 1 <= 16);
-            Contract.Requires(a < (1 << (byte)1));
-
-
-            if (v) return (UInt32)(data | (1 << index));
-
+            if (v) return (UInt32)(data | (UInt32)(1 << index));
 
             return (UInt32)(data & (UInt32.MaxValue - (1 << index)));
         }
-
-        public static UInt64 SetBit(UInt64 data, bool v, byte index)
-        {
-            byte a = v == true ? (byte)1 : (byte)0;
-            Contract.Requires(index + 1 <= 16);
-            Contract.Requires(a < (1 << (byte)1));
-
-
-            if (v) return (UInt64)(data | (ulong)(1 << index));
-
-
-            return (UInt64)(data & (UInt64.MaxValue - (ulong)(1 << index)));
-        }
-
 
         /// <summary>
         /// 取原码二进制格式，如：输入63，输出00111111
@@ -570,21 +485,15 @@ namespace LinkGo.Base
             int quotient = 0;
             int remainder = 0;
 
-
             int tmp = Math.Abs(originalValue);
 
             do
             {
                 quotient = tmp / 2;
                 remainder = tmp % 2;
-
-
                 buffer.Insert(0, Convert.ToString(remainder));
-
-
                 tmp = quotient;
             } while (tmp != 0);
-
 
             string result = buffer.ToString().TrimStart('0').PadLeft(7, '0');
             return result;
@@ -647,7 +556,6 @@ namespace LinkGo.Base
             return Convert.ToInt16(data, 16);
         }
 
-
         /// <summary>
         /// 十进制转十六进制
         /// </summary>
@@ -672,7 +580,6 @@ namespace LinkGo.Base
             string r = a.ToString().TrimStart('0').PadLeft(7, '0');
             return r;
         }
-
     }
 }
 

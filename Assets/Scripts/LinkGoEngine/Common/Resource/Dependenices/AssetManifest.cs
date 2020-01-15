@@ -1,7 +1,6 @@
 ﻿/// <summary>
 /// 资源清单
 /// </summary>
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace LinkGo.Common.Resource
@@ -10,7 +9,6 @@ namespace LinkGo.Common.Resource
     {
         public AssetManifest()
         {
-            AssetBundleManifest manifest;
             
         }
     }
