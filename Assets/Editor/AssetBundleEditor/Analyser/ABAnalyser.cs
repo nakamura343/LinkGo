@@ -2,10 +2,8 @@
 
 namespace ABBuildEditor
 {
-    public class AssetBundleAnalyser
+    public class ABAnalyser
     {
-
-
         public static AssetBundleBuild[] Analyser()
         {
 

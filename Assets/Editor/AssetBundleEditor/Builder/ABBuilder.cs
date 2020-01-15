@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEngine;
 
 namespace ABBuildEditor
 {
@@ -75,6 +76,9 @@ namespace ABBuildEditor
 
         static void BuildForTargetPlatform(BuildTarget target)
         {
+            AssetBundleBuild[] bundleBuilds = ABAnalyser.Analyser();
+
+            AssetBundleManifest manifest = BuildPipeline.BuildAssetBundles("", bundleBuilds, BuildAssetBundleOptions.ChunkBasedCompression, target);
 
         }
         #endregion
