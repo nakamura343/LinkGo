@@ -13,21 +13,22 @@ namespace UGUIEx.SuperImage
         public enum MirrorType
         {
             /// <summary>
+            /// 不使用
+            /// </summary>
+            None,
+
+            /// <summary>
             /// 水平
-            /// 提供左侧一半素材
             /// </summary>
             Horizontal,
 
             /// <summary>
             /// 垂直
-            /// 提供下侧一半素材
             /// </summary>
             Vertical,
 
             /// <summary>
             /// 四分之一
-            /// 相当于水平，然后再垂直
-            /// 提供左下侧素材
             /// </summary>
             Quarter
         }
@@ -36,16 +37,16 @@ namespace UGUIEx.SuperImage
         /// 镜像类型
         /// </summary>
         [SerializeField]
-        private MirrorType _mirrorType = MirrorType.Horizontal;
+        private MirrorType m_mirrorType = MirrorType.None;
 
         public MirrorType mirrorType
         {
-            get { return _mirrorType; }
+            get { return m_mirrorType; }
             set
             {
-                if (_mirrorType != value)
+                if (m_mirrorType != value)
                 {
-                    _mirrorType = value;
+                    m_mirrorType = value;
                     SetVerticesDirty();
                 }
             }
