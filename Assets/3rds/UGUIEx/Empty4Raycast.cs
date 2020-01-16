@@ -1,21 +1,20 @@
-﻿/*
- * https://blog.uwa4d.com/archives/fillrate.html
- */
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace UGUIEx
+[AddComponentMenu("UIEx/Empty4Raycast", 20)]
+public class Empty4Raycast : MaskableGraphic
 {
-    public class Empty4Raycast : MaskableGraphic
+    protected Empty4Raycast()
     {
-        protected Empty4Raycast() 
-        {
-            useLegacyMeshGeneration = false;
-        }
+        useLegacyMeshGeneration = false;
+    }
 
-        protected override void OnPopulateMesh(VertexHelper toFill)
-        {
-            toFill.Clear();
-        }
+    /*
+     * https://blog.uwa4d.com/archives/fillrate.html
+     */
+    protected override void OnPopulateMesh(VertexHelper toFill)
+    {
+        toFill.Clear();
     }
 }
 
