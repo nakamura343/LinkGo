@@ -2,8 +2,8 @@
 using UnityEditor.UI;
 
 [CanEditMultipleObjects]
-[CustomEditor(typeof(SuperImage), true)]
-public class SuperImageEditor : ImageEditor
+[CustomEditor(typeof(MirrorImage), true)]
+public class MirrorImageEditor : ImageEditor
 {
     SerializedProperty _mirrorType;
     protected override void OnEnable()

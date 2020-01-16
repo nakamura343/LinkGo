@@ -2,8 +2,8 @@
 using UnityEngine.Sprites;
 using UnityEngine.UI;
 
-[AddComponentMenu("UIEx/SuperImage", 21)]
-public class SuperImage : Image
+[AddComponentMenu("UIEx/MirrorImage", 21)]
+public class MirrorImage : Image
 {
     /// <summary>
     /// 镜像类型
